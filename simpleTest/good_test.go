@@ -10,7 +10,7 @@ func TestBubbleSort(t *testing.T) {
 	// Act
 	result := BubbleSort(arr)
 
-	if !Equal(result, expected) {
+	if Equal(result, expected) {
 		t.Error("Sorting went wrong")
 	}
 }
@@ -39,7 +39,7 @@ func TestMergeSort(t *testing.T) {
 		result := MergeSort(arrays.arr)
 		t.Logf("Calling (%v), result %v", arrays.arr, result)
 
-		if !Equal(result, arrays.expected) {
+		if Equal(result, arrays.expected) {
 			t.Errorf("Error. Expected %v, get %v", arrays.expected, result)
 		}
 	}
