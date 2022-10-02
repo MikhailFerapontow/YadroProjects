@@ -9,6 +9,9 @@ func TestEqual(t *testing.T) {
 }
 
 func FuzzEqual(f *testing.F) {
+
+	f.Add([]byte{'f', 'u', 'z', 'z'}, []byte{'f', 'u', 'z', 'z'})
+
 	f.Fuzz(func(t *testing.T, a []byte, b []byte) {
 		Equal(a, b)
 	})
