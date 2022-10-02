@@ -2,52 +2,45 @@ package simpletest
 
 import "testing"
 
-func TestIsBad(t *testing.T) {
+func TestBubbleSort(t *testing.T) {
 	// Test values
-	str := "bad day"
-	expected := true
+	arr := []int{5, 1, 2, 3, 0, 4}
+	expected := []int{0, 1, 2, 3, 4, 5}
 
 	// Act
-	result := isBad(str)
+	result := BubbleSort(arr)
 
-	//Output
-	if result != expected {
-		t.Error("Error. Function gives unexpected result")
+	if Equal(result, expected) {
+		t.Error("Sorting went wrong")
 	}
 }
 
 // First test is not very informative
 // and does not cover different situations
 
-func TestIsGood(t *testing.T) {
+func TestMergeSort(t *testing.T) {
 	// Test values
 	testTable := []struct {
-		str      string
-		expected bool
+		arr      []int
+		expected []int
 	}{
 		{
-			str:      "good Day",
-			expected: true,
+			arr:      []int{0, 5, 4, 3, 2, 1, 9, 7, 8, 6},
+			expected: []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
 		},
 		{
-			str:      "very bad Day",
-			expected: false,
-		},
-		{
-			str:      "It would be good",
-			expected: true,
+			arr:      []int{0, 1, 2, 3, 4, 5},
+			expected: []int{5, 4, 3, 2, 1, 0},
 		},
 	}
 
 	// Act
-	for _, testCase := range testTable {
-		result := IsGood(testCase.str)
-		t.Logf("Calling (%s), result %t", testCase.str, result)
+	for _, arrays := range testTable {
+		result := MergeSort(arrays.arr)
+		t.Logf("Calling (%v), result %v", arrays.arr, result)
 
-		// Output
-		if result != testCase.expected {
-			t.Errorf("Error. Expected %t, get %t", testCase.expected, result)
+		if Equal(result, arrays.expected) {
+			t.Errorf("Error. Expected %v, get %v", arrays.expected, result)
 		}
 	}
-
 }
