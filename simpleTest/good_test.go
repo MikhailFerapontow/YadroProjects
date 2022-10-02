@@ -2,7 +2,7 @@ package simpletest
 
 import "testing"
 
-func Test_IsBad(t *testing.T) {
+func TestIsBad(t *testing.T) {
 	// Test values
 	str := "bad day"
 	expected := true
@@ -19,7 +19,7 @@ func Test_IsBad(t *testing.T) {
 // First test is not very informative
 // and does not cover different situations
 
-func Test_IsGood(t *testing.T) {
+func TestIsGood(t *testing.T) {
 	// Test values
 	testTable := []struct {
 		str      string
