@@ -1,17 +1,5 @@
 package simpletest
 
-func Equal(a, b []int) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for i, v := range a {
-		if v != b[i] {
-			return false
-		}
-	}
-	return true
-}
-
 func BubbleSort(array []int) []int {
 	for i := 0; i < len(array)-1; i++ {
 		for j := 0; j < len(array)-i-1; j++ {
